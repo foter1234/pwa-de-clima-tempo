@@ -31,7 +31,7 @@ mapa.src = `https://maps.google.com/maps?q=${posicaoInicial.coords.latitude},${p
 
 }
 
-const erro = (erro) =>{
+const erro = (error) =>{
 
 let errorMessage
 
