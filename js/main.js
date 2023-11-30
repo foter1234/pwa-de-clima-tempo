@@ -67,6 +67,8 @@ const buscacidade = async (city)=>{
  temperaturaElemento.innerText = parseInt(data.main.temp)
  descricaoElemento.innerText = data.weather[0].description
  umidadeElemento.innerText = parseInt(data.main.humidity)
+ latitude.innerText = parseFloat(data.coord.lat)
+ longitude.innerText = parseFloat(data.coord.lon)
 
 }
 
