@@ -19,32 +19,50 @@
 
       </header>
       <div class="conteudoLocalizacao">
-    
+    <!--Input-->
         <input type="text" id="local" placeholder="localização"><br/>
+        <input type="text" id="data" placeholder="data da consulta"><br/>
+        <input type="text" id="hora" placeholder="hora da consulta"><br/>
+
+        
+        <!--Botões-->
         <div>
           <button class="botao" id="localizacao">Capturar localizacao</button>
           <button class="botao" id="capturaClima">encontrar clima</button>
+          <button class="botao" id="carregar">carregar lista</button>
+          <button class="botao" id="buscar">buscar</button>
         </div>
  
+
+        <!--informações-->
        <div style="width: 100%">
-        <iframe id="mapa" width="100%" height="600" frameborder="0" scrolling="no" 
-          marginheight="0" marginwidth="0" src="">
-        </iframe>
          <p id="latitude"></p>
          <p id="longitude"></p>
         <span id="city">Campo Grande</span>
         <span id="temperatura">55</span>
         <p id="descricao">muito quente</p>
         <p id="umidade"><span></span></p>
+        
+        <p id="data"><span></span></p>
+        <p id="hora"><span></span></p>
       </div>
 
       </div>
+
+
+
+
+      <div id="resultados"> </div><br/>
+
+
+      <!--Rodapé-->
       <footer class="rodape">
         progressive web Application - Geolocalization 
 
       </footer>
     </section>
     <script src="js/main.js" type="module"></script>
+    <script type="module" src="./js/db.js"></script>
 </body>
 </html>
 
