@@ -21,30 +21,30 @@
       <div class="conteudoLocalizacao">
     <!--Input-->
         <input type="text" id="local" placeholder="localização"><br/>
-        <input type="text" id="data" placeholder="data da consulta"><br/>
-        <input type="text" id="hora" placeholder="hora da consulta"><br/>
+        <input type="date" id="data" placeholder="data da consulta"><br/>
+        <input type="time" id="hora" placeholder="hora da consulta"><br/>
 
         
         <!--Botões-->
         <div>
           <button class="botao" id="localizacao">Capturar localizacao</button>
           <button class="botao" id="capturaClima">encontrar clima</button>
-          <button class="botao" id="carregar">carregar lista</button>
-          <button class="botao" id="buscar">buscar</button>
+          <button class="botao" id="listarDados">Listagem</button>
         </div>
  
 
         <!--informações-->
        <div style="width: 100%">
-         <p id="latitude"></p>
-         <p id="longitude"></p>
-        <span id="city">Campo Grande</span>
-        <span id="temperatura">55</span>
-        <p id="descricao">muito quente</p>
-        <p id="umidade"><span></span></p>
+    <p>latitude:<span id="latitude"></span></p>
+    <p>longitude:<span id="longitude"></span></p>
+    <p>cidade:<span id="city">Campo Grande</span></p>
+    <p>temperatura:<span id="temperatura">55</span></p>
+    <p>descrição:<span id="descricao">muito quente</span></p>
+    <p>umidade do ar:<span id="umidade"></span></p>
         
         <p id="data"><span></span></p>
         <p id="hora"><span></span></p>
+        <ul id="listaDados"></ul>
       </div>
 
       </div>

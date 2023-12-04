@@ -150,3 +150,32 @@ const salvarDados = async (data) => {
       console.error('Erro ao salvar dados no IndexedDB:', error);
     }
   };
+
+
+  const listarDadosBtn = document.getElementById('listarDados');
+  const listaDadosElemento = document.getElementById('listaDados');
+  
+  listarDadosBtn.addEventListener('click', async () => {
+    try {
+      const transaction = db.transaction('anotacao', 'readonly');
+      const store = transaction.objectStore('anotacao');
+  
+      const dados = await store.getAll();
+  
+
+      listaDadosElemento.innerHTML = '';
+  
+   
+      dados.forEach((item) => {
+        const listItem = document.createElement('li');
+        dataElemento.innerText = dia.value
+        horaElemento.innerText = hora.value
+        listItem.textContent = `Cidade: ${item.name}, Temperatura: ${item.main.temp}`;
+        listaDadosElemento.appendChild(listItem);
+      });
+  
+      console.log('Dados do IndexedDB listados com sucesso.');
+    } catch (error) {
+      console.error('Erro ao listar dados do IndexedDB:', error);
+    }
+  });

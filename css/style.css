@@ -1,41 +1,52 @@
-body{
-    background-color: rgb(174, 174, 174);
-  }
-  
-  .container{
-    box-sizing: border-box;
-    max-width: 100%;
-    width: 960px;
-    margin: 0 auto;
-    padding: 1em;
-  }
-  
-  .titulo{
-    text-align: center;
-    color: rgb(73, 71, 158);
-    font-size: 2em;
-  }
-  
-  .conteudo{
-    background-color: rgb(169, 164, 164);
-    margin: 1.5em 0;
-    box-shadow: 3px 3px 3px rgba(153, 154, 225, 0.3);
-    text-align: center;
-  }
-  
-  .conteudoLocalizacao{
-    font-size: 1,5em;
-  }
-  
-  .rodape{
-    text-align: center;
-    border-radius: 5%;
-  }
-  
-  .cabecalhoConteudo{
-    text-align: center;
-    margin: 0;
-    padding: 0;
-    color: #333;
-  }
-  
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+section {
+  background-color: #ffffff;
+  padding: 20px;
+  text-align: center;
+  height: 100%;
+}
+
+header {
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.conteudoLocalizacao {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+
+.botao {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+
+
+#listaDados {
+  list-style: none;
+  padding: 0;
+}
+
+#listaDados li {
+  margin-bottom: 5px;
+}
