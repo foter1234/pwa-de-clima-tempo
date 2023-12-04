@@ -78,7 +78,7 @@ const buscacidade = async (city)=>{
  salvarDados(data);
 
 }
-const buscaPosicao= async (posicao)=>{
+const buscaPosicao = async (posicao)=>{
 
   const data= await climaLocalizacao(posicao)
  
@@ -86,7 +86,8 @@ const buscaPosicao= async (posicao)=>{
   temperaturaElemento.innerText = parseInt(data.main.temp)
   descricaoElemento.innerText = data.weather[0].description
   umidadeElemento.innerText = parseInt(data.main.humidity)
- }
+ 
+}
 const erro = (error) =>{
 
   let errorMessage
