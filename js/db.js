@@ -31,15 +31,11 @@ let posicaoInicial;
 const capturarLocalizacao = document.getElementById('localizacao');
 const latitude = document.getElementById('latitude');
 const longitude = document.getElementById('longitude');
-
 const cidade = document.querySelector("#local")
-const dia = document.querySelector("#data")
-const hora = document.querySelector("#hora")
+
 const listarDados = document.getElementById('listarDados');
 
 const listaDadosElemento = document.getElementById('listaDados');
-const dataElemento = document.querySelector("#data")
-const horaElemento = document.querySelector("#hora")
 const botao = document.querySelector("#capturaClima")
 const cidadeElemento = document.querySelector("#city")
 const temperaturaElemento = document.querySelector("#temperatura")
@@ -77,10 +73,7 @@ const buscacidade = async (city)=>{
  umidadeElemento.innerText = parseInt(data.main.humidity)
  latitude.innerText = parseFloat(data.coord.lat)
  longitude.innerText = parseFloat(data.coord.lon)
- dataElemento.innerText = dia.value
- horaElemento.innerText = hora.value
- data.localizacao = `cidade:${data.name},data:${dia.value},horario:${hora.value}`;
-
+ data.localizacao = `${data.name}`;
 
  salvarDados(data);
 
@@ -136,10 +129,7 @@ const salvarDados = async (data) => {
         console.log('Dados salvos no IndexedDB');
         return;
       }
-  
-      
-      
-    } catch (error) {
+      } catch (error) {
       console.error('Erro ao salvar dados no IndexedDB:', error);
     }
   };
@@ -156,9 +146,8 @@ const salvarDados = async (data) => {
         listItem.textContent = `Cidade: ${item.name}, Temperatura: ${item.main.temp}`;
         listaDadosElemento.appendChild(listItem);
       });
-  
-      console.log('Dados do IndexedDB listados com sucesso.');
+    console.log('Dados listados com sucesso.');
     } catch (error) {
-      console.error('Erro ao listar dados do IndexedDB:', error);
+      console.error('Erro ao listar dados:', error);
     }
   });
