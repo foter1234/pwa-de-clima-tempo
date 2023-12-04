@@ -73,7 +73,7 @@ const buscacidade = async (city)=>{
  umidadeElemento.innerText = parseInt(data.main.humidity)
  latitude.innerText = parseFloat(data.coord.lat)
  longitude.innerText = parseFloat(data.coord.lon)
- data.localizacao = `${data.name}`;
+ data.localizacao = data.name;
 
  salvarDados(data);
 
