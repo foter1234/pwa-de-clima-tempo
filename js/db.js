@@ -35,18 +35,16 @@ const longitude = document.getElementById('longitude');
 const cidade = document.querySelector("#local")
 const dia = document.querySelector("#data")
 const hora = document.querySelector("#hora")
+const listarDados = document.getElementById('listarDados');
 
+const listaDadosElemento = document.getElementById('listaDados');
 const dataElemento = document.querySelector("#data")
 const horaElemento = document.querySelector("#hora")
-
 const botao = document.querySelector("#capturaClima")
 const cidadeElemento = document.querySelector("#city")
 const temperaturaElemento = document.querySelector("#temperatura")
 const descricaoElemento = document.querySelector("#descricao")
 const umidadeElemento = document.querySelector("#umidade")
-
-
-
 
 const climaLocalizacao = async(posicao)=>{
   posicaoInicial =posicao;
@@ -61,7 +59,6 @@ const climaLocalizacao = async(posicao)=>{
   return data
 
 }
-
 const cidadeInput = async(city)=>{
  
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${chaveapi}&lang=pt_br`
@@ -71,7 +68,6 @@ const cidadeInput = async(city)=>{
   
   return data
 }
-
 const buscacidade = async (city)=>{
  const data= await cidadeInput(city)
 
@@ -89,7 +85,6 @@ const buscacidade = async (city)=>{
  salvarDados(data);
 
 }
-
 const buscaPosicao= async (posicao)=>{
 
   const data= await climaLocalizacao(posicao)
@@ -99,7 +94,6 @@ const buscaPosicao= async (posicao)=>{
   descricaoElemento.innerText = data.weather[0].description
   umidadeElemento.innerText = parseInt(data.main.humidity)
  }
-
 const erro = (error) =>{
 
   let errorMessage
@@ -132,7 +126,6 @@ salvarDados(data);
 capturarLocalizacao.addEventListener('click', () => {
   navigator.geolocation.getCurrentPosition(buscaPosicao, erro)
 })
-
 const salvarDados = async (data) => {
     try {
       const transaction = db.transaction('anotacao', 'readwrite');
@@ -150,26 +143,16 @@ const salvarDados = async (data) => {
       console.error('Erro ao salvar dados no IndexedDB:', error);
     }
   };
-
-
-  const listarDadosBtn = document.getElementById('listarDados');
-  const listaDadosElemento = document.getElementById('listaDados');
-  
-  listarDadosBtn.addEventListener('click', async () => {
+  listarDados.addEventListener('click', async () => {
     try {
       const transaction = db.transaction('anotacao', 'readonly');
       const store = transaction.objectStore('anotacao');
-  
       const dados = await store.getAll();
   
-
       listaDadosElemento.innerHTML = '';
   
-   
       dados.forEach((item) => {
         const listItem = document.createElement('li');
-        dataElemento.innerText = dia.value
-        horaElemento.innerText = hora.value
         listItem.textContent = `Cidade: ${item.name}, Temperatura: ${item.main.temp}`;
         listaDadosElemento.appendChild(listItem);
       });
