@@ -8,7 +8,7 @@ async function criarDB(){
                 switch  (oldVersion) {
                     case 0:
                     case 1:
-                        const store = db.createObjectStore('anotacao', {
+                        const store = db.createObjectStore('clima', {
                             keyPath: 'localizacao'
                         });
                         store.createIndex('id', 'id');
@@ -121,8 +121,8 @@ capturarLocalizacao.addEventListener('click', () => {
 })
 const salvarDados = async (data) => {
     try {
-      const transaction = db.transaction('anotacao', 'readwrite');
-      const store = transaction.objectStore('anotacao');
+      const transaction = db.transaction('clima', 'readwrite');
+      const store = transaction.objectStore('clima');
   
       if (data.localizacao) {
         await store.add(data);
@@ -135,8 +135,8 @@ const salvarDados = async (data) => {
   };
   listarDados.addEventListener('click', async () => {
     try {
-      const transaction = db.transaction('anotacao', 'readonly');
-      const store = transaction.objectStore('anotacao');
+      const transaction = db.transaction('clima', 'readonly');
+      const store = transaction.objectStore('clima');
       const dados = await store.getAll();
   
       listaDadosElemento.innerHTML = '';
